@@ -1,0 +1,23 @@
+.notification {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 5rem;
+  width: 100%;
+  background-color: #1b1b1b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 0.5rem 10%;
+  box-shadow: 0 -3px 6px #1b1b1b;
+}
+.success {
+  background-color: green;
+}
+.error {
+  background-color: rgb(179, 41, 41);
+}
+.pedding {
+  background-color: rgb(33, 63, 136);
+}
