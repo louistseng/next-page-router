@@ -7,12 +7,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   switch (req.method) {
     case "POST":
       let bodyObject = req.body;
-      let myPost = await db.collection("comment_details").insertMany(bodyObject);
+      let myPost = await db.collection("comment_details").insertOne(bodyObject);
       res.json(myPost.ops[0]);
       break;
     case "GET":
-      const pditems = await db.collection("comment_details").find({}).toArray();
-      res.json({ status: 200, data: { pditems } });
+      const comItems = await db.collection("comment_details").find({}).toArray();
+      res.json({ status: 200, data: { comItems } });
       break;
   }
 }

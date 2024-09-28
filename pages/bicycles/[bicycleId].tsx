@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import BicycleContent from "../../components/bicycles/bicycle_content";
 import { Pditem } from "../../lib/myInterface";
 import { getBicycleData } from "../../lib/function";
-import type { GetStaticProps } from "next";
+import { LoadingOutlined } from "@ant-design/icons";
 
 export default function BicycleDetailPage() {
   const [pdData, setPbData] = useState<Pditem | null>(null);
@@ -11,20 +11,23 @@ export default function BicycleDetailPage() {
   const router = useRouter();
   const queryId = router.query.bicycleId as string;
 
-  const getData = async (queryId: string): Promise<void> => {
+  const getProductData = async (queryId: string): Promise<void> => {
     setLoading(true);
-    const pditems = await getBicycleData();
-    const data = pditems.data.pditems.find((i: { Id: number }) => i.Id.toString() === queryId);
+    const pdItems = await getBicycleData();
+    const data = pdItems.data.pdItems.find((i: { Id: number }) => i.Id.toString() === queryId);
     setPbData(data);
     setLoading(false);
   };
   useEffect(() => {
-    getData(queryId);
+    getProductData(queryId);
   }, [queryId]);
   return (
     <>
       {!pdData || loading ? (
-        <p className="text-xl font-bold underline text-center">loading..</p>
+        <p className="text-xl font-bold underline text-center">
+          <LoadingOutlined />
+          loading..
+        </p>
       ) : (
         <BicycleContent
           id={pdData.Id}

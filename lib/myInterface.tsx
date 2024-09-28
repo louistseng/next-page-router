@@ -14,7 +14,7 @@ export interface Pditem {
 }
 
 export interface PdProps {
-  pditems: Pditem[];
+  pdItems: Pditem[];
 }
 
 export interface ContentProps {

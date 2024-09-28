@@ -4,6 +4,7 @@ import BicycleList from "../../components/bicycles/bicycle_list";
 import BicycleSearch from "../../components/bicycles/bicycle_search";
 import { getBicycleData } from "../../lib/function";
 import { Pditem } from "../../lib/myInterface";
+import { LoadingOutlined } from "@ant-design/icons";
 
 export default function FilteredBicyclePage() {
   const router = useRouter();
@@ -14,8 +15,8 @@ export default function FilteredBicyclePage() {
 
   const getData = async (filterYear: string): Promise<void> => {
     setLoading(true);
-    const pditems = await getBicycleData();
-    const data = pditems.data.pditems.filter(
+    const pdItems = await getBicycleData();
+    const data = pdItems.data.pdItems.filter(
       (i: { ProductionYear: number }) => i.ProductionYear.toString() === filterYear
     );
     setPbSlugData(data);
@@ -36,7 +37,10 @@ export default function FilteredBicyclePage() {
       <h1 style={{ display: "flex", justifyContent: "center" }}></h1>
       <BicycleSearch onSearch={findBicycleHandler} />
       {loading ? (
-        <p className="center">loading...</p>
+        <p className="center">
+          <LoadingOutlined />
+          loading...
+        </p>
       ) : (
         <>
           {pdSlugData.length === 0 ? <p className="center">未查到相關結果！</p> : ""}

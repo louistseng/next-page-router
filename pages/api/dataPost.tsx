@@ -11,8 +11,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.json(myPost.ops[0]);
       break;
     case "GET":
-      const pditems = await db.collection("bicycle_details").find({}).toArray();
-      res.json({ status: 200, data: { pditems } });
+      const pdItems = await db.collection("bicycle_details").find({}).toArray();
+      res.json({ status: 200, data: { pdItems } });
       break;
   }
 }

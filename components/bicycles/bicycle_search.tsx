@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import Button from "../ui/button";
-import classes from "./bicycle_search.module.css";
 
 interface BicycleSearchProps {
   onSearch: (query: string) => void;
@@ -15,10 +14,10 @@ const BicycleSearch: React.FC<BicycleSearchProps> = ({ onSearch }) => {
   };
   return (
     <form onSubmit={submitHandler}>
-      <div className={classes.search}>
-        <div className={classes.selectBtn}>
+      <div className="border-2 border-slate-200 border-solid rounded-xl overflow-hidden justify-between shadow m-8 mb-0 p-2">
+        <div className="">
           <label htmlFor="year">年份</label>
-          <select id="year" ref={yearRef}>
+          <select className="" id="year" ref={yearRef}>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
             <option value="2022">2022</option>

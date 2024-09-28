@@ -5,7 +5,7 @@ import { getBicycleData } from "../../lib/function";
 import type { GetStaticProps } from "next";
 import { PdProps } from "../../lib/myInterface";
 
-export default function AllBicyclePage({ pditems }: PdProps) {
+export default function AllBicyclePage({ pdItems }: PdProps) {
   const router = useRouter();
 
   const findBicycleHandler = (year: string) => {
@@ -15,20 +15,20 @@ export default function AllBicyclePage({ pditems }: PdProps) {
   return (
     <>
       <BicycleSearch onSearch={findBicycleHandler} />
-      <BicycleList item={pditems} />
+      <BicycleList item={pdItems} />
     </>
   );
 }
 export const getStaticProps: GetStaticProps<PdProps> = async () => {
   try {
-    const pditems = await getBicycleData();
+    const pdItems = await getBicycleData();
     return {
-      props: { pditems: pditems.data.pditems },
+      props: { pdItems: pdItems.data.pdItems },
     };
   } catch (e) {
     console.error(e);
     return {
-      props: { pditems: [] },
+      props: { pdItems: [] },
     };
   }
 };

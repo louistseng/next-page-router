@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import MainHeader from "./main-header";
 import Notification from "../ui/notification";
-import NotifocationContext from "../../store/notification-context";
+import NotificationContext from "../../store/notification-context";
 
 export default function Layout(props) {
-  const notificationCtx = useContext(NotifocationContext);
+  const notificationCtx = useContext(NotificationContext);
   const activeNotification = notificationCtx.notification;
+
+  // console.log(notificationCtx);
+
   return (
     <>
       <MainHeader />

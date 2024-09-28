@@ -5,11 +5,13 @@ import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <NotificationContextProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </NotificationContextProvider>
+    <>
+      <NotificationContextProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </NotificationContextProvider>
+    </>
   );
 }
 
