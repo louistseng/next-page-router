@@ -21,7 +21,7 @@ export default function BicycleContent(props: ContentProps) {
   const username = notificationCtx.userDetail?.data.username;
 
   const queryId = router.query.bicycleId;
-  const userSession = sessionStorage.getItem("_id");
+  // const userSession = sessionStorage.getItem("_id");
 
   const comHandleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
