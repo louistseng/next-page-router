@@ -10,6 +10,8 @@ npm init
 npm run dev
 # or
 yarn dev
+
+npm version use v19.0.1
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
